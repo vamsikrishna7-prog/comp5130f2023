@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <script>
+        function validateForm() {
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var url = document.getElementById("url").value;
+
+            // Regular expressions for validation
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var phoneRegex = /(\+\d{1,3}[-. ]?)?(\(\d{1,3}\)[-.\s]?)?(\d{1,4}[-.\s ]?)?\d{3,4}[-.\s ]?\d{4}/;
+            var urlRegex = /^(https?:\/\/)?([a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+)(\/\S*)?$/;
+
+            var validFields = [];
+            var invalidFields = [];
+
+            if (emailRegex.test(email)) {
+                validFields.push("Email");
+            } else {
+                invalidFields.push("Email");
+            }
+
+            if (phoneRegex.test(phone)) {
+                validFields.push("Phone Number");
+            } else {
+                invalidFields.push("Phone Number");
+            }
+
+            if (urlRegex.test(url)) {
+                validFields.push("URL");
+            } else {
+                invalidFields.push("URL");
+            }
+
+            var results = "";
+
+            if (validFields.length > 0) {
+                results += "Valid fields: " + validFields.join(", ") + "<br>";
+            }
+
+            if (invalidFields.length > 0) {
+                results += "Invalid fields: " + invalidFields.join(", ");
+            }
+
+            document.getElementById("validationResults").innerHTML = results;
+
+            return false; // Prevent form submission
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return validateForm()">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email"><br><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone"><br><br>
+
+        <label for="url">URL:</label>
+        <input type="text" id="url" name="url"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="validationResults"></div>
+</body>
+</html>
