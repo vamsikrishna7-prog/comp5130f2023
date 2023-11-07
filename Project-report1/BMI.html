@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Weight Loss Revolution</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('Bmi.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7); /* Added background transparency */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.9); /* Added background transparency to input fields */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Weight Loss Revolution</h1>
+        <p>You are now logged in or signed up. Explore our personalized weight loss and maintenance plans, nutrition guidance, exercise recommendations, and progress tracking.</p>
+        <form id="bmiForm">
+            <label for="height">Enter Your Height (in cm):</label>
+            <input type="number" name="height" id="height" required>
+            
+            <label for="weight">Enter Your Weight (in kg):</label>
+            <input type="number" name="weight" id="weight" required>
+            
+            <p id="bmiResult">Your BMI: <span id="bmiValue">--</span></p>
+            
+            <button type="button" onclick="calculateBMI()" class="button">Calculate BMI</button>
+        </form>
+        <a href="login.html" class="button">Log Out</a>
+    </div>
+
+    <script>
+        function calculateBMI() {
+            const height = document.getElementById("height").value;
+            const weight = document.getElementById("weight").value;
+
+            if (height && weight) {
+                const heightInMeters = height / 100;
+                const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+
+                document.getElementById("bmiValue").textContent = bmi;
+                document.getElementById("bmiResult").style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
