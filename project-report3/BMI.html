@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Weight Loss Revolution</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('Bmi.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7); /* Added background transparency */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.9); /* Added background transparency to input fields */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Weight Loss Revolution</h1>
+        <p>You are now logged in or signed up. Explore our personalized weight loss and maintenance plans, nutrition guidance, exercise recommendations, and progress tracking.</p>
+        <form id="bmiForm">
+            <label for="height">Enter Your Height (in cm):</label>
+            <input type="number" name="height" id="height" required>
+            
+            <label for="weight">Enter Your Weight (in kg):</label>
+            <input type="number" name="weight" id="weight" required>
+            
+            <p id="bmiResult">Your BMI: <span id="bmiValue">--</span></p>
+            
+            <button type="button" onclick="calculateBMI()" class="button">Calculate BMI</button>
+            <button type="button" onclick="showDietPlans()" class="button">DIET PLANS</button>
+        </form>
+
+        <div id="dietPlan" style="display: none;">
+            <h2>Your Personalized Diet Plan</h2>
+            <p id="dietDescription"></p>
+        </div>
+
+        <a href="login.html" class="button">Log Out</a>
+    </div>
+
+    <script>
+        function calculateBMI() {
+            const height = document.getElementById("height").value;
+            const weight = document.getElementById("weight").value;
+
+            if (height && weight) {
+                const heightInMeters = height / 100;
+                const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+
+                document.getElementById("bmiValue").textContent = bmi;
+                document.getElementById("bmiResult").style.display = "block";
+            }
+        }
+
+        function showDietPlans() {
+            const bmi = document.getElementById("bmiValue").textContent;
+            const dietPlanDiv = document.getElementById("dietPlan");
+            const dietDescription = document.getElementById("dietDescription");
+
+            if (bmi < 18.5) {
+                dietDescription.innerHTML = "<strong>Underweight Diet Plan:</strong><br>1. Increase calorie intake with healthy fats like avocados and nuts.<br>2. Include protein-rich foods like lean meats, eggs, and dairy.<br>3. Eat frequent, balanced meals throughout the day.";
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                dietDescription.innerHTML = "<strong>Normal Weight Diet Plan:</strong><br>1. Focus on a balanced diet with a variety of fruits, vegetables, lean proteins, and whole grains.<br>2. Control portion sizes to maintain a healthy weight.<br>3. Stay hydrated by drinking plenty of water.";
+            } else if (bmi >= 25 && bmi < 29.9) {
+                dietDescription.innerHTML = "<strong>Overweight Diet Plan:</strong><br>1. Choose lean proteins and incorporate more vegetables into your meals.<br>2. Limit refined sugars and processed foods.<br>3. Increase physical activity along with a calorie-controlled diet.";
+            } else {
+                dietDescription.innerHTML = "<strong>Obese Diet Plan:</strong><br>1. Consult with a healthcare professional or nutritionist for a specialized diet plan.<br>2. Focus on whole, nutrient-dense foods.<br>3. Incorporate regular exercise into your routine for weight management.";
+            }
+
+            dietPlanDiv.style.display = "block";
+        }
+    </script>
+</body>
+</html>

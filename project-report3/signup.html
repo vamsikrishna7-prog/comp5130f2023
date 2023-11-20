@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('weight3.png'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); 
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        label {
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form action="registration_process.php" method="POST">
+        
+            
+            <label for="firstName">First Name:</label>
+            <input type="text" name="firstName" id="firstName" required>
+            
+            <label for="lastName">Last Name:</label>
+            <input type="text" name "lastName" id="lastName" required>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="mobileNumber">Mobile Number:</label>
+            <input type="tel" name="mobileNumber" id="mobileNumber" required>
+            
+            <label for="dob">Date of Birth:</label>
+            <input type="date" name="dob" id="dob" required>
+            
+            <label for="dob">Username:</label>
+            <input type="username:" name="username" id="username" required>
+
+            <label for="dob">password:</label>
+            <input type="create password:" name="psw" id="password" required>
+
+            <button type="submit" class="button">Sign Up</button>
+            <a href="login.html" class="button">Already signedup?</a>
+        </form>
+    </div>
+</body>
+</html>
