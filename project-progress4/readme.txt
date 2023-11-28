@@ -1,1 +1,0 @@
-I successfully integrated a logout button into the BMI page, incorporating PHP files and modifying the JavaScript code within the HTML file. I am immensely proud of this accomplishment as it enhances the user experience and security by enabling a smooth logout process and optimizing the functionality of the BMI calculator.
