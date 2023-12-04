@@ -1,0 +1,75 @@
+=========== Full Stack App Documentation: Weight Loss And Maintenance
+
+
+===== Prerequisites
+
+Ensure you have the following prerequisites installed on your system:
+
+- Node.js v18.12.1
+- Yarn
+- XAMPP (for MySQL)
+
+====== Setting Up the Environment
+
+=========== Node.js Installation
+
+1. Download Node.js v18.12.1 from https://nodejs.org/.
+2. Follow the installation instructions for your operating system.
+
+=========== Yarn Installation
+
+1. Install Yarn using npm (Node Package Manager) by running the following command:
+   `npm install -g yarn`
+
+## Project Setup
+
+=========== Frontend (React)
+
+1. Extract the contents of the bmi-calc-frontend.zip file.
+2. Open a terminal and navigate to the bmi-calc-frontend directory.
+3. Install project dependencies using the following command:
+   `yarn install`
+
+=========== Backend (NestJS)
+
+1. Extract the contents of the bmi-calc-backend.zip file.
+2. Open a terminal and navigate to the bmi-calc-backend directory.
+3. Install project dependencies using the following command:
+   `yarn install`
+
+## Database Setup
+
+=========== XAMPP Installation
+
+1. Download XAMPP from https://www.apachefriends.org/index.html.
+2. Follow the installation instructions for your operating system.
+3. Start the Apache and MySQL services using the XAMPP Control Panel.
+
+=========== MySQL Database Creation
+
+1. Open PHPMyAdmin from http://localhost/phpmyadmin/.
+2. Execute the following SQL script to create a new database named BmiNDiet:
+
+CREATE DATABASE IF NOT EXISTS BmiNDiet;
+USE BmiNDiet;
+
+=========== Environment Configuration
+
+1. Navigate to the bmi-calc-backend directory.
+2. Create a .env file.
+3. Update the .env file with the following database credentials:
+
+DATABASE_USER="<db_username>"
+DATABASE_PASSWORD="<db_password>"
+DATABASE_NAME="BmiNDiet"
+DATABASE_SERVER="localhost"
+DATABASE_PORT=3306
+
+=========== Run the Application
+
+1. Start the backend server:
+   `cd bmi-calc-backend && yarn start`
+2. Start the frontend server:
+   `cd bmi-calc-frontend && yarn start`
+
+Access the application in your web browser at http://localhost:3000.
